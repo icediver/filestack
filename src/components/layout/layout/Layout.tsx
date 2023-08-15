@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren } from "react";
 import styles from "./Layout.module.scss";
-import Sidebar from "./sidebar/Sidebar";
-import Header from "./sidebar/header/Header";
+import Sidebar from "../sidebar/Sidebar";
+import Header from "../sidebar/header/Header";
 const Layout: FC<PropsWithChildren<unknown>> = ({ children }) => {
   return (
     <section className={styles.layout}>
