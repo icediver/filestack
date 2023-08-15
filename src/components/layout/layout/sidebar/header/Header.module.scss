@@ -1,0 +1,33 @@
+.header {
+  @apply h-24 grid grid-cols-4 border-t-2 border-b-2 border-black/10;
+  .search {
+    @apply col-span-3  flex items-center px-10 text-black/50 relative;
+    > input {
+      @apply py-4 bg-bg-color w-1/2 rounded-lg px-20;
+    }
+    > svg {
+      @apply absolute left-16;
+    }
+  }
+  .rightSide {
+    .options {
+      @apply flex justify-evenly gap-4 px-4 col-span-2 border-r-2 border-black/10;
+    }
+    @apply col-span-1   w-full grid grid-cols-7 items-center text-black;
+    > svg {
+      @apply mx-auto;
+    }
+    .bell {
+      @apply relative;
+      .notification {
+        @apply absolute w-2 h-2 rounded-full bg-error-color top-0.5 right-1;
+      }
+    }
+    .auth {
+      @apply col-span-5 flex items-center gap-6 px-6;
+      .avatar {
+        @apply rounded-full overflow-hidden w-12 inline-block;
+      }
+    }
+  }
+}
