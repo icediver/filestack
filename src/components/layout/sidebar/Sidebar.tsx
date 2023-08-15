@@ -7,8 +7,10 @@ import { FaArrowUp, FaFolderOpen } from "react-icons/fa";
 import clsx from "clsx";
 import { menuData } from "./menu-data/menu.data";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Sidebar: FC = () => {
+  const pathname = usePathname();
   const [activeItem, setActiveItem] = useState<number>(1);
   return (
     <div className={styles.sidebar}>
@@ -30,7 +32,8 @@ const Sidebar: FC = () => {
                   key={menuItem.item.title}
                   href={menuItem.item.path}
                   className={clsx(styles.menuItem, {
-                    [styles.active]: activeItem === index,
+                    // [styles.active]: activeItem === index,
+                    [styles.active]: menuItem.item.path === pathname,
                   })}
                   onClick={() => setActiveItem(index)}
                 >
