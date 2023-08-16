@@ -56,7 +56,7 @@ const Sidebar: FC = () => {
         <div className={styles.sizeContainer}>
           <div className={styles.storage}>Available Storage</div>
           <div className={styles.size}>
-            85,29 <span className={"text-white/40"}>/ 128 GB</span>
+            85,29 GB <span className={"text-white/40"}>/ 128 GB</span>
           </div>
           <div className={styles.bar}>
             <div className={styles.whiteBar}></div>
