@@ -1,9 +1,13 @@
 .layout {
-  @apply grid-cols-6 grid h-screen w-screen overflow-hidden;
+  @apply grid-cols-6 grid h-screen w-screen;
   .sidebar {
     @apply col-span-1 h-screen bg-primary p-4;
   }
-  .header {
-    @apply col-span-5;
+  .content {
+    @apply col-span-5 h-full;
+
+    .children {
+      @apply h-[calc(100%-6rem)] text-black p-8;
+    }
   }
 }

@@ -8,10 +8,10 @@ const Layout: FC<PropsWithChildren<unknown>> = ({ children }) => {
       <div className={styles.sidebar}>
         <Sidebar />
       </div>
-      <div className={styles.header}>
+      <div className={styles.content}>
         <Header />
+        <div className={styles.children}>{children}</div>
       </div>
-      <div className={styles.children}>{children}</div>
     </section>
   );
 };
