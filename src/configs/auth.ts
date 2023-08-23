@@ -1,3 +1,4 @@
+import { hash, verify } from "argon2";
 import { AuthOptions, User } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 export const authConfig: AuthOptions = {
@@ -17,12 +18,16 @@ export const authConfig: AuthOptions = {
           id: "1",
           email: "test@test.ru",
           name: "Lerry Kurniadi",
-          password: "12345",
+          password: await hash("12345"),
           role: "admin",
           image:
             "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/257.jpg",
         };
-        if (currentUser && currentUser.password === credentials.password) {
+        const isValid = await verify(
+          currentUser.password,
+          credentials.password,
+        );
+        if (currentUser && isValid) {
           const { password, ...userWithoutPass } = currentUser;
 
           return userWithoutPass as User;

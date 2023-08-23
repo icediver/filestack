@@ -1,5 +1,5 @@
 .header {
-  @apply h-24 grid grid-cols-4 border-t-2 border-b-2 border-black/10;
+  @apply h-24 grid grid-cols-4 border-t-2 border-b-2 border-black/10 z-0;
   .search {
     @apply col-span-3  flex items-center px-10 text-black/50 relative;
     > input {
@@ -11,7 +11,7 @@
   }
   .rightSide {
     .options {
-      @apply flex justify-evenly gap-4 px-4 col-span-2 border-r-2 border-black/10;
+      @apply relative flex justify-evenly gap-4 px-4 col-span-2 border-r-2 border-black/10;
     }
     @apply col-span-1   w-full grid grid-cols-7 items-center text-black;
     > svg {
@@ -24,10 +24,13 @@
       }
     }
     .auth {
-      @apply col-span-5 flex items-center gap-6 px-6;
+      @apply col-span-5 flex items-center gap-6 px-6 animate-scaleIn;
       .avatar {
         @apply rounded-full overflow-hidden w-12 inline-block;
       }
+    }
+    .authModal {
+      @apply absolute top-16 right-6 z-10  w-64 h-40 rounded-xl  drop-shadow-xl   bg-indigo-50 animate-scaleIn;
     }
   }
 }

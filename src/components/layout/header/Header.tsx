@@ -1,5 +1,5 @@
 "use client";
-import { FC } from "react";
+import { FC, useState } from "react";
 import styles from "./Header.module.scss";
 import { PiBell } from "react-icons/pi";
 import { SlSettings } from "react-icons/sl";
@@ -7,10 +7,11 @@ import Image from "next/image";
 import { LuSearch } from "react-icons/lu";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
+import AuthForm from "@/components/screen/authform/AuthForm";
 
 const Header: FC = () => {
   const session = useSession();
-  console.log(session);
+  const [isOpenAuth, setIsOpenAuth] = useState<boolean>(false);
   return (
     <div className={styles.header}>
       <div className={styles.search}>
@@ -40,7 +41,13 @@ const Header: FC = () => {
             {session.data.user.name}
           </div>
         ) : (
-          <Link href={"/api/auth/signin"}>Signin</Link>
+          // <Link href={"/api/auth/signin"}>Signin</Link>
+          <button onClick={() => setIsOpenAuth(!isOpenAuth)}>Log in</button>
+        )}
+        {isOpenAuth && (
+          <div className={styles.authModal}>
+            <AuthForm setIsOpen={setIsOpenAuth} />
+          </div>
         )}
       </div>
     </div>

@@ -1,9 +1,11 @@
 "use client";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { FC, FormEventHandler } from "react";
-
-const AuthForm: FC = () => {
+import { Dispatch, FC, FormEventHandler, SetStateAction } from "react";
+import styles from "./AuthForm.module.scss";
+const AuthForm: FC<{ setIsOpen?: Dispatch<SetStateAction<boolean>> }> = ({
+  setIsOpen,
+}) => {
   const router = useRouter();
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
@@ -13,17 +15,20 @@ const AuthForm: FC = () => {
       password: formData.get("password"),
       redirect: false,
     });
-    if (res && !res.error) {
-      router.push("/");
-    } else {
-      console.log(res);
-    }
+    if (setIsOpen) setIsOpen(false);
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="email" name="email" required />
-      <input type="password" name="password" required />
-      <button type="submit">Sign In</button>
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <input className={styles.email} type="email" name="email" required />
+      <input
+        className={styles.password}
+        type="password"
+        name="password"
+        required
+      />
+      <button className={styles.button} type="submit">
+        Sign In
+      </button>
     </form>
   );
 };
