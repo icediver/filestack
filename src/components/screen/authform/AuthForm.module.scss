@@ -1,0 +1,12 @@
+.form {
+  @apply p-4;
+  .email {
+    @apply m-2;
+  }
+  .password {
+    @apply m-2;
+  }
+  .button {
+    @apply m-2 bg-secondary py-2 px-6 rounded-lg;
+  }
+}
