@@ -1,0 +1,9 @@
+.foldersSection {
+  .title {
+    @apply my-8 text-xl font-semibold;
+  }
+  @apply px-6;
+  .folders {
+    @apply grid grid-cols-4 gap-6;
+  }
+}

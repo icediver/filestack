@@ -6,8 +6,7 @@ import { SlSettings } from "react-icons/sl";
 import Image from "next/image";
 import { LuSearch } from "react-icons/lu";
 import { signOut, useSession } from "next-auth/react";
-import Link from "next/link";
-import AuthForm from "@/components/screen/authform/AuthForm";
+import AuthForm from "./authform/AuthForm";
 
 const Header: FC = () => {
   const session = useSession();
@@ -41,7 +40,6 @@ const Header: FC = () => {
             {session.data.user.name}
           </div>
         ) : (
-          // <Link href={"/api/auth/signin"}>Signin</Link>
           <button onClick={() => setIsOpenAuth(!isOpenAuth)}>Log in</button>
         )}
         {isOpenAuth && (

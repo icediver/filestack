@@ -1,0 +1,15 @@
+.folder {
+  @apply relative h-20 rounded-l-full rounded-r-full w-64 bg-bg-color flex items-center;
+  .icon {
+    @apply absolute w-16 h-16 rounded-full bg-white shadow-xl top-2 left-2 text-primary/90 text-2xl flex justify-center items-center;
+  }
+  .information {
+    @apply ml-[5.5rem];
+    .folderName {
+      @apply font-semibold;
+    }
+    .info {
+      @apply text-xs text-black-inactive;
+    }
+  }
+}

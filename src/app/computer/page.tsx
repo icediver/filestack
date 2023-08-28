@@ -3,9 +3,5 @@ import Computer from "@/components/screen/computer/Computer";
 import Home from "@/components/screen/home/Home";
 
 export default function ComputerPage() {
-  return (
-    <Layout>
-      <Computer />
-    </Layout>
-  );
+  return <Computer />;
 }

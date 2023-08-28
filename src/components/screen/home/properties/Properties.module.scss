@@ -1,0 +1,51 @@
+.properties {
+  @apply flex flex-col justify-between h-full pb-2;
+  .header {
+    .title {
+      @apply mx-10 my-6 text-lg font-medium flex justify-between;
+      > svg {
+        @apply relative hover:text-error-color hover:cursor-pointer;
+      }
+    }
+
+    .preview {
+      @apply w-4/5 aspect-[1/0.9] bg-bg-color mx-auto rounded-xl flex items-center justify-center;
+      .frame {
+        @apply w-[90%]  rounded-xl overflow-hidden;
+      }
+    }
+    .fileName {
+      @apply text-sm font-medium mx-10 py-5 border-b border-black-inactive/20;
+    }
+  }
+  .description {
+    .property {
+      @apply text-base font-medium;
+    }
+    @apply text-xs mx-10;
+    .key {
+      @apply text-black-inactive text-xs my-2;
+    }
+    .value {
+      @apply font-medium text-sm;
+    }
+  }
+  .footer {
+    @apply w-4/5 h-40 bg-bg-color mx-auto rounded-xl my-4 p-6;
+    .footerTitle {
+      @apply mb-4 font-medium;
+    }
+    .owner {
+      @apply flex gap-4 items-center;
+      .avatar {
+        @apply rounded-full overflow-hidden h-8 w-8 inline-block;
+      }
+      .name {
+        @apply inline-block text-xs font-normal;
+      }
+    }
+    .access {
+      @apply text-xs text-primary border border-primary p-1.5 mt-3  rounded-lg;
+    }
+  }
+}

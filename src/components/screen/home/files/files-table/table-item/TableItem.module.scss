@@ -1,0 +1,19 @@
+.tableItem {
+  @apply relative grid grid-cols-7 items-center;
+  .filename {
+    @apply flex items-center col-span-3;
+    .icon {
+      @apply text-xl text-primary mx-4 h-12 w-12 flex items-center justify-center rounded-full bg-white;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.09);
+    }
+  }
+  .type {
+    @apply text-start;
+  }
+  .size {
+    @apply text-center;
+  }
+  .date {
+    @apply text-end;
+  }
+}

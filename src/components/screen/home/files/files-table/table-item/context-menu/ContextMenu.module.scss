@@ -1,0 +1,16 @@
+.menu {
+  @apply absolute w-60 bg-white shadow rounded-xl z-10 -translate-y-1/2 animate-opacity;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.09);
+  > button {
+    @apply flex p-4 hover:bg-bg-color w-full;
+    > svg {
+      @apply text-xl mr-4;
+    }
+  }
+  button:first-child {
+    @apply hover:rounded-t-xl;
+  }
+  button:last-child {
+    @apply text-error-color border-t border-black-inactive/20 hover:rounded-b-xl;
+  }
+}

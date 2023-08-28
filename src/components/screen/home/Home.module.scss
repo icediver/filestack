@@ -1,0 +1,9 @@
+.home {
+  @apply grid grid-cols-8 h-[calc(100vh-6rem)];
+  .content {
+    @apply col-span-6;
+  }
+  .properties {
+    @apply col-span-2 w-full h-full border-l-2 border-black/10;
+  }
+}

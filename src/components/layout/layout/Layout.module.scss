@@ -7,7 +7,7 @@
     @apply col-span-5 h-full;
 
     .children {
-      @apply h-[calc(100%-6rem)] text-black p-8;
+      @apply h-[calc(100%-6rem)] text-black;
     }
   }
 }
