@@ -1,7 +1,8 @@
 .folder {
-  @apply relative h-20 rounded-l-full rounded-r-full w-64 bg-bg-color flex items-center;
+  @apply relative h-20 rounded-l-full rounded-r-full w-64  flex items-center;
   .icon {
-    @apply absolute w-16 h-16 rounded-full bg-white shadow-xl top-2 left-2 text-primary/90 text-2xl flex justify-center items-center;
+    @apply absolute w-16 h-16 rounded-full bg-white shadow-xl top-2  text-primary/90 text-2xl flex justify-center items-center;
+    transition: all 1s ease-in-out;
   }
   .information {
     @apply ml-[5.5rem];
@@ -11,5 +12,62 @@
     .info {
       @apply text-xs text-black-inactive;
     }
+  }
+}
+.notActive {
+  @apply bg-bg-color;
+  transition: all 1s ease-in-out;
+  .icon {
+    @apply left-2;
+    animation: notActiveFolder 1s ease-in-out;
+  }
+}
+.active {
+  @apply bg-primary/80 text-white;
+  box-shadow: inset 0px 0px 35px rgba(0, 0, 0, 0.3);
+  transition: all 1s ease-in-out;
+
+  .icon {
+    @apply right-2;
+    animation: activeFolder 1s ease-in-out;
+  }
+  .information {
+    .info {
+      @apply text-gray-300;
+    }
+  }
+}
+
+@keyframes activeFolder {
+  0% {
+    transform: rotate(0deg);
+    left: calc(0% + 0.5rem);
+  }
+  25% {
+    color: red;
+  }
+  75% {
+    color: #77f040;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    left: calc(100% - 4.5rem);
+  }
+}
+@keyframes notActiveFolder {
+  0% {
+    transform: rotate(360deg);
+    left: calc(100% - 4.5rem);
+  }
+  25% {
+    color: red;
+  }
+  75% {
+    color: #77f040;
+  }
+  100% {
+    transform: rotate(0deg);
+    right: calc(100% - 4.5rem);
   }
 }

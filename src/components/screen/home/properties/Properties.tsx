@@ -8,7 +8,6 @@ import tmpImage from "../../../../../public/images/filestack.png";
 
 const Properties: FC = () => {
   const { data } = useSession();
-  console.log(data);
   return (
     <div className={styles.properties}>
       <div className={styles.header}>
