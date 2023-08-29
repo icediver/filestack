@@ -13,7 +13,11 @@ const ContextMenu: FC<{ mouseCoordinates: { x: number; y: number } }> = ({
   return (
     <div style={{ left: mouseCoordinates.x }} className={styles.menu}>
       {ContextMenuData.map((item) => (
-        <button className={styles.item} onClick={eneventHandler}>
+        <button
+          className={styles.item}
+          key={item.title}
+          onClick={eneventHandler}
+        >
           <item.Icon />
           {item.title}
         </button>

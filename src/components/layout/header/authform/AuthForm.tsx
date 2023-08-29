@@ -18,27 +18,6 @@ const AuthForm: FC<{ setIsOpen?: Dispatch<SetStateAction<boolean>> }> = ({
 }) => {
   const router = useRouter();
   // const { user, setUser } = useAuth();
-  const {
-    mutate: loginSync,
-    isError,
-    data,
-  } = useMutation(
-    ["login"],
-    (data: IEmailPassword) => {
-      console.log(data);
-      return AuthService.main("login", data);
-    },
-    {
-      onSuccess(data) {
-        // if (setUser) setUser(data.user);
-        console.log(data);
-      },
-      onError(err: AxiosError) {
-        const error = (err.response?.data as IErrorMessage).message;
-        console.log(error === undefined ? "" : error);
-      },
-    },
-  );
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();

@@ -23,7 +23,7 @@ export const ContextMenuData: IContextMenuItem[] = [
   },
   {
     Icon: RiFolderSharedLine,
-    title: "Rename",
+    title: "Move",
   },
   {
     Icon: RiEdit2Line,

@@ -6,7 +6,7 @@ import clsx from "clsx";
 import ContextMenu from "./context-menu/ContextMenu";
 import { useOutside } from "@/hooks/useOutside";
 
-const TableItem: FC<IFilesTableItem> = ({
+const TableItem: FC<IFilesTableItem & { isActive: boolean }> = ({
   name,
   Icon,
   type,

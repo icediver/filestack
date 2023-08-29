@@ -6,5 +6,4 @@ export interface IFilesTableItem {
   type: string;
   size: string;
   date: string;
-  isActive: boolean;
 }
