@@ -26,10 +26,6 @@ export const ContextMenuData: IContextMenuItem[] = [
     title: "Move",
   },
   {
-    Icon: RiEdit2Line,
-    title: "Move",
-  },
-  {
     Icon: RiUserAddLine,
     title: "Share",
   },
