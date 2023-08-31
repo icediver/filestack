@@ -1,10 +1,10 @@
 .tableItem {
-  @apply relative grid grid-cols-7 items-center;
+  @apply relative grid grid-cols-7 items-center animate-opacity hover:text-error-color;
   .filename {
     @apply flex items-center col-span-3;
     .icon {
-      @apply text-xl text-primary mx-4 h-12 w-12 flex items-center justify-center rounded-full bg-white;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.09);
+      @apply text-xl text-primary mx-4 h-12 w-12 flex items-center justify-center rounded-full bg-white shadow-around;
+      // box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.09);
     }
   }
   .type {
@@ -15,5 +15,13 @@
   }
   .date {
     @apply text-end;
+  }
+  .dots {
+    @apply flex justify-end text-xl text-black-inactive  mr-8;
+  }
+  &:hover {
+    .dots {
+      @apply text-error-color;
+    }
   }
 }

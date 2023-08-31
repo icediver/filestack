@@ -1,13 +1,3 @@
 .filesSection {
-  @apply px-6;
-  .title {
-    @apply my-8 font-semibold text-xl;
-  }
-}
-.file {
-  @apply w-full  py-4 bg-[#fefefe] rounded-xl border-2 border-transparent;
-}
-
-.active {
-  @apply bg-bg-color border-2 border-primary;
+  @apply px-6 flex flex-col h-4/5 pb-6;
 }

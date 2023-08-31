@@ -43,3 +43,9 @@ instance.interceptors.response.use(
     throw error;
   },
 );
+export const axiosClassic = axios.create({
+  baseURL: process.env.SERVER_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});

@@ -18,8 +18,8 @@
   @apply bg-bg-color;
   transition: all 1s ease-in-out;
   .icon {
-    @apply left-2;
-    animation: notActiveFolder 1s ease-in-out;
+    @apply left-2 animate-rotate-left;
+    // animation: notActiveFolder 1s ease-in-out;
   }
 }
 .active {
@@ -28,8 +28,8 @@
   transition: all 1s ease-in-out;
 
   .icon {
-    @apply right-2;
-    animation: activeFolder 1s ease-in-out;
+    @apply right-2 animate-rotate-right;
+    // animation: activeFolder 1s ease-in-out;
   }
   .information {
     .info {

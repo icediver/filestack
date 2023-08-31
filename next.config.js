@@ -4,14 +4,7 @@ const nextConfig = {
     SERVER_URL: process.env.SERVER_URL,
   },
   images: {
-    domains: [
-      "i.pinimg.com",
-      "lh3.googleusercontent.com",
-      "avatars.githubusercontent.com",
-      "sun1-27.userapi.com",
-      "avatars.yandex.net",
-      "cloudflare-ipfs.com",
-    ],
+    domains: ["loremflickr.com", "cloudflare-ipfs.com"],
   },
 };
 

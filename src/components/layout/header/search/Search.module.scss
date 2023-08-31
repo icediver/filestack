@@ -1,0 +1,12 @@
+.search {
+  @apply col-span-3  flex items-center px-10 text-black/50 relative;
+  > input {
+    @apply py-4 bg-bg-color w-1/2 rounded-lg px-20;
+  }
+  > svg {
+    @apply absolute left-16;
+  }
+  .result {
+    @apply w-[calc(50%-2.5rem)] rounded-lg  bg-bg-color left-10 absolute  -bottom-0 translate-y-[100%] z-10;
+  }
+}

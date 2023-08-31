@@ -1,0 +1,16 @@
+.pagination {
+  @apply text-right flex items-center justify-end mt-auto;
+  .button,
+  .page {
+    @apply text-primary/70  w-12 h-12 rounded-full shadow-around text-center mx-4 active:translate-y-1 flex justify-center items-center;
+  }
+  .button {
+    @apply text-2xl hover:text-primary hover:bg-bg-color p-2  transition-all text-center;
+  }
+  .page {
+    @apply font-semibold;
+  }
+  .active {
+    @apply bg-primary/70 text-white;
+  }
+}

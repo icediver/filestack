@@ -9,7 +9,7 @@
     }
 
     .preview {
-      @apply w-4/5 aspect-[1/0.9] bg-bg-color mx-auto rounded-xl flex items-center justify-center;
+      @apply w-4/5 aspect-[1/0.85] bg-bg-color mx-auto rounded-xl flex items-center justify-center;
       .frame {
         @apply w-[90%]  rounded-xl overflow-hidden;
       }
