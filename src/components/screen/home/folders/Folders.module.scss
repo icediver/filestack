@@ -1,9 +1,16 @@
 .foldersSection {
   .title {
-    @apply my-8 text-xl font-semibold;
+    @apply my-8 text-xl font-semibold flex justify-between items-center;
+    .pagination {
+      @apply flex text-primary/80;
+      > button {
+        @apply hover:text-error-color;
+      }
+    }
   }
   @apply px-6;
   .folders {
-    @apply grid grid-cols-4 gap-6;
+    @apply flex gap-10 overflow-hidden;
+    transition: translate 1s ease;
   }
 }

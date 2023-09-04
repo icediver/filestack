@@ -7,4 +7,5 @@
 
 .active {
   @apply bg-bg-color border-2 border-primary;
+  transition: all 1s ease;
 }

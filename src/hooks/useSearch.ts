@@ -6,38 +6,46 @@ import { FileService } from "@/services/file/file.services";
 import { ISearch } from "@/services/file/search.interface";
 
 export const useSearch = () => {
-    const [searchTerm, setSearchTerm] = useState("");
-    const [activeFolder, setActiveFolder] = useState<number>(-1);
-    const [currentPage, setCurrentPage] = useState<number>(1);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [activeFolder, setActiveFolder] = useState<number>(-1);
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
-    const search: ISearch = useMemo(
-        () => ({ searchTerm, activeFolder, page: currentPage }),
-        [searchTerm, activeFolder, currentPage],
-    );
+  const search: ISearch = useMemo(
+    () => ({ searchTerm, activeFolder, page: currentPage }),
+    [searchTerm, activeFolder, currentPage],
+  );
+  const { data: directories } = useQuery(
+    ["directories", searchTerm],
+    () => {
+      return FileService.getAllDirectories(searchTerm);
+    },
+    { select: ({ data }) => data },
+  );
 
-    const debouncedSearch = useDebounce(search, 500);
+  const debouncedSearch = useDebounce(search, 500);
 
-    const { isSuccess, data } = useQuery(
-        ["search files or directories", debouncedSearch],
-        () => {
-            return FileService.getBySearchTerm(debouncedSearch);
-        },
-    );
+  const { isSuccess, data } = useQuery(
+    ["search files", debouncedSearch],
+    () => {
+      return FileService.getBySearchTerm(debouncedSearch);
+    },
+  );
+  useEffect(() => setCurrentPage(1), [activeFolder]);
 
-    useEffect(() => setCurrentPage(1), [activeFolder]);
+  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm((prevState) => e.target.value);
+    setCurrentPage(1);
+  };
 
-    const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-        setSearchTerm((prevState) => e.target.value);
-        setCurrentPage(1);
-    };
-
-    return {
-        isSuccess,
-        handleSearch,
-        activeFolder,
-        setActiveFolder,
-        setCurrentPage,
-        currentPage,
-        data,
-    };
+  return {
+    isSuccess,
+    handleSearch,
+    activeFolder,
+    setActiveFolder,
+    setCurrentPage,
+    currentPage,
+    searchTerm,
+    directories,
+    data,
+  };
 };
