@@ -38,6 +38,7 @@ const FilesTable: FC<Omit<ITableFiles, "currentPage" | "setCurrentPage">> = ({
           })}
         >
           <TableItem
+            id={file.id}
             Icon={FormatIcon[file.format] || RiFilmLine}
             name={file.name}
             type={file.format}

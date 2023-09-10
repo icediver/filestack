@@ -14,23 +14,23 @@ export const useSearch = () => {
     () => ({ searchTerm, activeFolder, page: currentPage }),
     [searchTerm, activeFolder, currentPage],
   );
-  const { data: directories } = useQuery(
-    ["directories", searchTerm],
-    () => {
+  const { data: directories } = useQuery({
+    queryKey: ["directories", searchTerm],
+    queryFn: () => {
       return FileService.getAllDirectories(searchTerm);
     },
-    { select: ({ data }) => data },
-  );
+    select: ({ data }) => data,
+  });
 
   const debouncedSearch = useDebounce(search, 500);
 
-  const { isSuccess, data } = useQuery(
-    ["search files", debouncedSearch],
-    () => {
+  const { isSuccess, data } = useQuery({
+    queryKey: ["search files", debouncedSearch],
+    queryFn: () => {
       return FileService.getBySearchTerm(debouncedSearch);
     },
-  );
-  useEffect(() => setCurrentPage(1), [activeFolder]);
+  });
+  useEffect(() => setCurrentPage(2), [activeFolder]);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm((prevState) => e.target.value);

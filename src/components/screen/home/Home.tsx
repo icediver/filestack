@@ -1,7 +1,7 @@
 "use client";
 import { FC, useEffect, useMemo, useState } from "react";
 import styles from "./Home.module.scss";
-import Folders, { IDirectory } from "./folders/Folders";
+import Folders from "./folders/Folders";
 import Properties from "./properties/Properties";
 import Files from "./files/Files";
 import { IFileProperties } from "./files/file-properties.interface";

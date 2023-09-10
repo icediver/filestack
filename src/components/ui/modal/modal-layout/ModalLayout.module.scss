@@ -1,0 +1,54 @@
+.container {
+  @apply fixed top-0 left-0 right-0 bottom-0 p-9 box-border flex justify-center items-center z-10;
+  .overlay {
+    @apply fixed w-full h-full top-0 left-0 right-0 bottom-0 bg-black/60 z-20 cursor-pointer;
+  }
+  .content {
+    @apply border border-[#e6e6e6] h-[400px] shadow-xl rounded-2xl overflow-auto z-30 min-w-[600px] bg-white;
+  }
+}
+
+.animationIn {
+  animation: animationIn 0.5s forwards ease-in;
+}
+
+@keyframes animationIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.animationOut {
+  animation: animationOut 0.5s forwards ease-out;
+}
+.animationOverlayOut {
+  animation: animationOverlayOut 1s 0.5s forwards ease-out;
+}
+
+@keyframes animationOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes animationOverlayOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    transform: scale(100%, 1%);
+    opacity: 1;
+  }
+  80% {
+    transform: scale(1%, 1%);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0, 0);
+  }
+}

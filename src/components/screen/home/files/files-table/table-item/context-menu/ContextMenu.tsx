@@ -1,28 +1,29 @@
-import { FC, MouseEvent, useState } from "react";
+import { FC, MouseEvent, forwardRef } from "react";
 import styles from "./ContextMenu.module.scss";
-import { RiEdit2Line } from "react-icons/ri";
 import { ContextMenuData } from "./data-context-menu/dataContextMenu";
 
-const ContextMenu: FC<{ mouseCoordinates: { x: number; y: number } }> = ({
-  mouseCoordinates,
-}) => {
-  function eneventHandler(event: MouseEvent) {
-    event.preventDefault();
-    event.stopPropagation();
-  }
-  return (
-    <div style={{ left: mouseCoordinates.x }} className={styles.menu}>
-      {ContextMenuData.map((item) => (
-        <button
-          className={styles.item}
-          key={item.title}
-          onClick={eneventHandler}
-        >
-          <item.Icon />
-          {item.title}
-        </button>
-      ))}{" "}
-    </div>
-  );
-};
-export default ContextMenu;
+interface IContextFileMenu {
+  mouseCoordinates: { x: number; y: number };
+  menuHandler: (event: MouseEvent) => void;
+}
+
+export const ContextMenu = forwardRef<HTMLUListElement, IContextFileMenu>(
+  ({ mouseCoordinates, menuHandler }, ref) => {
+    return (
+      <ul
+        style={{ left: mouseCoordinates.x }}
+        className={styles.menu}
+        ref={ref}
+      >
+        {ContextMenuData.map((item) => (
+          <li className={styles.item} key={item.title} onClick={menuHandler}>
+            <item.Icon />
+            {item.title}
+          </li>
+        ))}
+      </ul>
+    );
+  },
+);
+
+ContextMenu.displayName = "ContextMenu";
